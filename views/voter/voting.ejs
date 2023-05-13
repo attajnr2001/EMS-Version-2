@@ -1,0 +1,48 @@
+<%- include("../partials/navbar2.ejs") %>
+
+<div class="big">
+  <div class="sm">
+    <form action="/voter/<%= voter._id %>/voting" method="post">
+
+
+      <h1 class="title">President</h1>
+      <div class="position">
+        <% candidate.president.forEach(elt => { %>
+        <div class="">
+          <h1><%= elt.firstName %> <%= elt.lastName %></h1>
+      
+          <img width="100px" src="<%= elt.coverImagePath %>" alt="pic" />
+    
+          <input class="form-check-input" type="radio" name="presidentOption" value="<%= elt._id %>" />
+          <label for="">Vote</label>
+        </div>
+        <% }) %>
+      </div>
+      <button class="btn btn-secondary" onclick="clearPresidentSelection()" type="button">Clear Selection</button>
+    
+      <hr>
+
+      <h1 class="title">Secretary</h1>
+      <div class="position">
+        <% candidate.secretary.forEach(elt => { %>
+        <div class="">
+          <h1><%= elt.firstName %> <%= elt.lastName %></h1>
+      
+          <img width="100px" src="<%= elt.coverImagePath %>" alt="pic" />
+    
+          <input class="form-check-input" type="radio" name="secretaryOption" value="<%= elt._id %>" />
+          <label for="">Vote</label>
+        </div>
+        <% }) %>
+      </div>
+      <button class="btn btn-secondary" type="button" onclick="clearSecretarySelection()">
+        Clear Selection
+      </button>
+      <br>
+      <button class="btn btn-primary my-3" type="submit">Finish Vote</button>
+    </form>
+  </div>
+</div>
+
+
+<script src="/script.js"></script>

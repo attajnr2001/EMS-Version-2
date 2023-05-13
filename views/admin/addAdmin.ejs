@@ -1,0 +1,99 @@
+<%- include("../partials/navbar.ejs") %>
+
+<div class="addAdmin">
+  <div class="sm">
+    <span>Add Admin</span>
+    <%- include("../partials/messages.ejs") %>
+    <form action="/admin/dashboard/<%= admin._id %>/addAdmin" method="post">
+      <div>
+        <label for="firstName">First Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="firstName"
+          name="firstName"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="lastName">Last Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="userName">Username</label>
+        <input
+          class="form-control"
+          type="text"
+          id="userName"
+          name="userName"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input
+          class="form-control"
+          type="password"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="Cpassword">Confirm Password</label>
+        <input
+          class="form-control"
+          type="password"
+          id="password"
+          name="password2"
+          required
+        />
+      </div>
+
+      <div class="">
+        <label for="">Department</label>
+        <select name="department" class="form-control" id="department">
+          <option value="<%= admin.department %>">
+            <%= admin.department %>
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label for="phone">Phone</label>
+        <input
+          class="form-control"
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input class="form-control" type="date" id="dob" name="dob" required />
+      </div>
+
+      <div class="">
+        <label for="">Role</label>
+        <select name="role" id="role" class="form-control">
+          <option value="admin">Admin</option>
+          <option value="supervisor">Supervisor</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
